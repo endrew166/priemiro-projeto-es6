@@ -1,50 +1,49 @@
 "use strict";
 
-// delcarar varuaveis em ES6
-//const: cria uma vaiavel do tipo constante.
-//para objetos e arrays
-var nomeVariavel = "Joao"; //objeto
+// Operações com Array em ES6+
+var array = [1, 3, 4, 5, 8, 9];
+var novoArray = array.map(function (item, index) {
+  return item + index;
+});
+console.log(novoArray); // Reduce: consumir todo o vetor e transformar em uma única informação
 
-var usuario = {
-  nome: 'Jesus',
-  iade: 26
-}; //permite a mutação do objeto mas não substituição
+var soma = array.reduce(function (total, proximoValor) {
+  return total + proximoValor;
+});
+console.log(soma); // Filter: filtrar somete os itens que queremos
 
-usuario.nome = 'Maria';
-var meuVetor = [1, 2, 3, 4, 5]; //permite a mutação do array  através das alterações nos indices
+var filterPares = array.filter(function (item) {
+  // if (item % 2 === 0)
+  //     return true
+  // else
+  //     return false;    
+  return item % 2 === 0; // << resumido 
+});
+console.log(filterPares);
+var usuarios = [{
+  nome: 'Usuario 1',
+  idade: 10
+}, {
+  nome: 'Usuario 2',
+  idade: 15
+}, {
+  nome: 'Usuario 3',
+  idade: 18
+}];
+var novosUsuarios = usuarios.filter(function (usuario) {
+  return usuario.idade >= 15;
+});
+console.log(novosUsuarios); // Find
 
-meuVetor[0] = 90;
-meuVetor[2] = 93;
-console.log(usuario);
-console.log(meuVetor);
-var valor = 3;
-var nome = 'Claude late';
-var altua = 1.86;
-var contemValor = true;
-console.log(contemValor);
+var find = usuarios.find(function (item) {
+  return item.nome === 'Usuario 1';
+});
 
-if (true) {}
+if (find) {
+  console.log(find);
+} // forEach
 
-function somar() {}
 
-for (var i = 0; i < 5; i++) {}
-
-var exbirMensaggem = function exbirMensaggem() {
-  mensagem = 'Minha mensagem';
-  console.log(mensagem);
-  var mensagem;
-};
-
-exbirMensaggem();
-
-if (true) {
-  var _escopoFuncao = 'teste';
-  var _escopoBloco = 'teste 2';
-  console.log(_escopoBloco);
-  console.log(_escopoBloco);
-}
-
-var escopoFuncao = 'teste';
-var escopoBloco = 'teste 2';
-console.log(escopoFuncao);
-console.log(escopoBloco);
+usuarios.forEach(function (item, index) {
+  console.log(item);
+});

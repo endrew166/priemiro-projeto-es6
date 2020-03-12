@@ -1,52 +1,54 @@
-// delcarar varuaveis em ES6
-//const: cria uma vaiavel do tipo constante.
-//para objetos e arrays
+// Operações com Array em ES6+
+const array = [1, 3, 4, 5, 8, 9];
 
-const nomeVariavel = "Joao";
-//objeto
-const usuario = {nome:'Jesus', iade:26};
-//permite a mutação do objeto mas não substituição
-usuario.nome = 'Maria';
+const novoArray = array.map(function (item, index) {
+    return item + index;
+});
 
-const meuVetor = [1, 2, 3, 4, 5,];
-//permite a mutação do array  através das alterações nos indices
-meuVetor[0] = 90;
-meuVetor[2] = 93;
+console.log(novoArray);
 
-console.log(usuario);
-console.log(meuVetor);
+// Reduce: consumir todo o vetor e transformar em uma única informação
+const soma = array.reduce(function (total, proximoValor) {
+    return total + proximoValor;
+});
 
-let valor = 3;
-let nome = 'Claude late';
-let altua = 1.86
-let contemValor = true;
+console.log(soma);
 
-console.log(contemValor);
-if(true){
+// Filter: filtrar somete os itens que queremos
+const filterPares = array.filter(function (item) {
+    // if (item % 2 === 0)
+    //     return true
+    // else
+    //     return false;    
+    return item % 2 === 0; // << resumido 
+});
 
+console.log(filterPares);
+
+const usuarios = [
+    { nome: 'Usuario 1', idade: 10 },
+    { nome: 'Usuario 2', idade: 15 },
+    { nome: 'Usuario 3', idade: 18 },
+];
+
+const novosUsuarios = usuarios.filter(function (usuario) {
+    return usuario.idade >= 15;
+});
+
+console.log(novosUsuarios);
+
+// Find
+const find = usuarios.find(function (item) {
+    return item.nome === 'Usuario 1';
+});
+
+if (find) {
+    console.log(find);
 }
-function somar(){
 
-}
-for(var i= 0; i<5; i++){
+// forEach
+usuarios.forEach (function (item, index) {
+    console.log(item);
+});
 
-}
 
- var exbirMensaggem = function(){
-     mensagem = 'Minha mensagem';
-     console.log(mensagem);
-     var mensagem;
- }  
-
- exbirMensaggem();
- if(true){
-     let escopoFuncao = 'teste';
-     let escopoBloco = 'teste 2';
-    console.log(escopoBloco);
-    console.log(escopoBloco);
-}
- 
- let escopoFuncao = 'teste';
- let escopoBloco = 'teste 2';
- console.log(escopoFuncao);
- console.log(escopoBloco);
